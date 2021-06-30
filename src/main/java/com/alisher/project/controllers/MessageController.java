@@ -17,13 +17,8 @@ public class MessageController {
     private final MessageService messageService;
 
     @PostMapping(SAVE_MESSAGE_URL)
-    public Message saveMessage(@RequestBody MessageSaveForm form){
-        try {
-            return messageService.saveMessage(form);
-        } catch (NotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public Message saveMessage(@RequestBody MessageSaveForm form) throws NotFoundException {
+        return messageService.saveMessage(form);
     }
 }
 
