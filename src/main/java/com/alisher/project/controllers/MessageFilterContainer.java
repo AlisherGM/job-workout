@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(MessageController.ROOT_URL)
+@RequestMapping(MessageFilterContainer.ROOT_URL)
 public class MessageFilterContainer {
-    public final String ROOT_URL = "/filter";
-    public final String CLEAN_OBSCENE_WORD_LIST_URL = "/all";
-    public final String CLEAN_OBSCENE_WORD_URL = "/{word}";
+    public static final String ROOT_URL = "/filter";
+    public static final String CLEAN_OBSCENE_WORD_LIST_URL = "/all";
+    public static   final String CLEAN_OBSCENE_WORD_URL = "/clean";
 
     private final MessageFilterService messageFilterService;
 
     @GetMapping(CLEAN_OBSCENE_WORD_URL)
-    public Long cleanObsceneWords(@PathVariable String word) {
+    public Long cleanObsceneWords(@RequestParam String word) {
         return messageFilterService.clearObsceneMessages(word);
     }
 
