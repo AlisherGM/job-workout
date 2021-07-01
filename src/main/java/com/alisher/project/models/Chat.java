@@ -3,7 +3,7 @@ package com.alisher.project.models;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.Collection;
 
 @Builder
 @Getter
@@ -21,8 +21,11 @@ public class Chat {
     @JoinColumn(name="user_id")
     private User owner;
 
-    @OneToMany(mappedBy = "chat_id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Message> messages;
+    @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)
+    private Collection<User> members;
+
+    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Collection<Message> messages;
 
     @Column(nullable = false)
     private String name;
