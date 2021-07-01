@@ -1,5 +1,6 @@
 package com.alisher.project.models;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
 
 import javax.persistence.*;

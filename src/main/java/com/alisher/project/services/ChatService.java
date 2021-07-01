@@ -24,4 +24,8 @@ public class ChatService {
                 .build();
         return chatRepository.save(chat);
     }
+
+    public Chat getChat(Long chatId) {
+        return chatRepository.getOne(chatId);
+    }
 }
