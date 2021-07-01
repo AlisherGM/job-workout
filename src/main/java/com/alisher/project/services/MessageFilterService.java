@@ -13,7 +13,6 @@ public class MessageFilterService {
         private final MessageRepository messageRepository;
 
         public Long clearObsceneMessages(String obsceneWord) {
-                int i = 1;
                 return messageRepository.deleteBySrcIgnoreCaseContains(obsceneWord);
         }
 
