@@ -25,9 +25,6 @@ public class Chat {
     @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)
     private Collection<User> members;
 
-    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Collection<Message> messages;
-
     @Column(nullable = false)
     private String name;
 }
