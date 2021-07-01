@@ -22,7 +22,7 @@ public class MessageFilterContainer {
     }
 
     @GetMapping(CLEAN_OBSCENE_WORD_LIST_URL)
-    public Long cleanObsceneWords(@ModelAttribute MessageFilterForm form) {
+    public Long cleanObsceneWords(@RequestBody MessageFilterForm form) {
         return messageFilterService.clearObsceneMessages(form);
     }
 }
