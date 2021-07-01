@@ -16,12 +16,11 @@ public class ChatService {
     private final UserRepository userRepository;
 
     public Chat createChat(ChatForm chatForm) throws NotFoundException {
-        User user = userRepository.findById(chatForm.getUserId())
-                .orElseThrow(()->new NotFoundException("User with id = " + chatForm.getUserId() + " not founded"));
+        User owner = userRepository.findById(chatForm.getOwnerId())
+                .orElseThrow(()->new NotFoundException("User with id = " + chatForm.getOwnerId() + " not founded"));
         Chat chat = Chat.builder()
-                .user(user)
+                .owner(owner)
                 .name(chatForm.getName())
-                .definition(chatForm.getDefinition())
                 .build();
         return chatRepository.save(chat);
     }

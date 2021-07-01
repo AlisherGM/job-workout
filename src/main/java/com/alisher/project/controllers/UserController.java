@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
     public static final String ROOT_URL = "/user";
-    public static final String CREATE_USER_URL = "/create";
+    public static final String CREATE_USER_URL = ROOT_URL + "/create";
 
     private final UserService userService;
 

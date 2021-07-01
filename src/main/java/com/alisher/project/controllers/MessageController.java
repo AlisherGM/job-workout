@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class MessageController {
     public static final String ROOT_URL = "/message";
-    public static final String SAVE_MESSAGE_URL = "/save";
+    public static final String SAVE_MESSAGE_URL = ROOT_URL + "/save";
 
     private final MessageService messageService;
     private final MessageRepository messageRepository;

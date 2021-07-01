@@ -3,9 +3,11 @@ package com.alisher.project.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
-@Data
 @Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -15,13 +17,13 @@ public class Chat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne()
-    @JoinColumn(name="user_id", nullable = false)
-    private User user;
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User owner;
+
+    @OneToMany(mappedBy = "chat_id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Message> messages;
 
     @Column(nullable = false)
     private String name;
-
-    @Column(nullable = true)
-    private String definition;
 }

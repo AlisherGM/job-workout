@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ChatController {
     public static final String ROOT_URL = "/chat";
-    private static final String CREATE_CHAT_URL = "/create";
+    private static final String CREATE_CHAT_URL = ROOT_URL + "/create";
 
     private final ChatService chatService;
 
