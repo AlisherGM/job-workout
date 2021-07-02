@@ -2,10 +2,11 @@ package com.alisher.project.controllers;
 
 import com.alisher.project.forms.MessageSaveForm;
 import com.alisher.project.models.Message;
-import com.alisher.project.repositories.MessageRepository;
 import com.alisher.project.services.MessageService;
 import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -16,11 +17,15 @@ public class MessageController {
     public static final String SAVE_MESSAGE_URL = "/save";
 
     private final MessageService messageService;
-    private final MessageRepository messageRepository;
 
     @PostMapping(SAVE_MESSAGE_URL)
-    public Message saveMessage(@RequestBody MessageSaveForm form) throws NotFoundException {
-        return messageService.saveMessage(form);
+    public ResponseEntity<Message> saveMessage(@RequestBody MessageSaveForm form) {//нужно дописать маппер для конвертирования в джейсон дто
+        try {
+            return new ResponseEntity<>(messageService.saveMessage(form), HttpStatus.OK);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<Message>(new Message(), HttpStatus.BAD_REQUEST);
     }
 }
 

@@ -2,11 +2,11 @@ package com.alisher.project.forms;
 
 import lombok.*;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChatForm {
+    private Long ownerId;
     private String name;
-    private String definition;
-    private Long userId;
 }

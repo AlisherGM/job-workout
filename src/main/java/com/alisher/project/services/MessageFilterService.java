@@ -4,7 +4,9 @@ import com.alisher.project.forms.MessageFilterForm;
 import com.alisher.project.repositories.MessageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Service
 @RequiredArgsConstructor
 public class MessageFilterService {
