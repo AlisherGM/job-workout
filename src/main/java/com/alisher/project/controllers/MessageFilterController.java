@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(MessageFilterContainer.ROOT_URL)
-public class MessageFilterContainer {
+@RequestMapping(MessageFilterController.ROOT_URL)
+public class MessageFilterController {
     public static final String ROOT_URL = "/filter";
     public static final String CLEAN_OBSCENE_WORD_LIST_URL = "/all";
     public static   final String CLEAN_OBSCENE_WORD_URL = "/clean";

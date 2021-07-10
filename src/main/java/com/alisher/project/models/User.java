@@ -3,16 +3,17 @@ package com.alisher.project.models;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Objects;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
-@Entity
 @Builder
+@ToString
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(name="users")
 public class User {
     @Id

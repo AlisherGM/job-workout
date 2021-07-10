@@ -14,6 +14,7 @@ public class ChatController {
     public static final String ROOT_URL = "/chat";
     private static final String CREATE_CHAT_URL = "/create";
     private static final String GET_CHAT_URL = "/info/{id}";
+    private static final String GET_CHAT_URL_check = "/test";
 
     private final ChatService chatService;
 
@@ -25,5 +26,10 @@ public class ChatController {
     @GetMapping(GET_CHAT_URL)
     public Chat getChatInfo(@PathVariable String id) {
         return chatService.getChat(Long.parseLong(id));
+    }
+
+    @GetMapping(GET_CHAT_URL_check)
+    public Chat getChatInfo() {
+        return chatService.getChat(Long.parseLong("1"));
     }
 }

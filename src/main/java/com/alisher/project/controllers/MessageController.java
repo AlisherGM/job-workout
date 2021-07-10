@@ -19,13 +19,13 @@ public class MessageController {
     private final MessageService messageService;
 
     @PostMapping(SAVE_MESSAGE_URL)
-    public ResponseEntity<Message> saveMessage(@RequestBody MessageSaveForm form) {//нужно дописать маппер для конвертирования в джейсон дто
+    public ResponseEntity<Message> saveMessage(@RequestBody MessageSaveForm form) {
         try {
             return new ResponseEntity<>(messageService.saveMessage(form), HttpStatus.OK);
         } catch (NotFoundException e) {
             e.printStackTrace();
         }
-        return new ResponseEntity<Message>(new Message(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(new Message(), HttpStatus.BAD_REQUEST);
     }
 }
 
